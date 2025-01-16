@@ -1,0 +1,15 @@
+numpy
+torch==2.3.1
+torchvision
+setproctitle
+graphviz
+SimpleITK
+matplotlib
+scikit-image
+tqdm
+medpy
+tensorboard
+nibabel
+opencv-python
+mlflow
+TotalSegmentator==1.5.7

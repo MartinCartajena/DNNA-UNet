@@ -7,7 +7,11 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from datetime import datetime
 from config import get_args  
+import mlflow
 
+from datasets.train_default_dataset import train_default_dataset
+from utils.prepare.dig_module import BitwiseImageTransformer
+from model import DNNA_UNet
 
 
 def main(args):
@@ -46,9 +50,9 @@ def main(args):
     loaders = {"train": loader_train, "valid": loader_val}
     
     if args.dig_sep:
-        vnet = VNet_CBAM.VNet_CBAM(8, args.loss)
+        vnet = DNNA_UNet.VNet_CBAM(8, args.loss)
     else:
-        vnet = VNet_CBAM.VNet_CBAM(1, args.loss)
+        vnet = DNNA_UNet.VNet_CBAM(1, args.loss)
 
     vnet.to(device)
 
